@@ -9,6 +9,7 @@ namespace adrilight
         int BorderDistanceX { get; set; }
         int BorderDistanceY { get; set; }
         string ComPort { get; set; }
+        int Baudrate { get; set; }
         DateTime? LastUpdateCheck { get; set; }
         [Obsolete]
         int LedsPerSpot { get; set; }
