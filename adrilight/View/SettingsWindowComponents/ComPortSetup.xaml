@@ -20,7 +20,7 @@
     </UserControl.Resources>
     <WrapPanel>
         <materialDesign:Card Margin="4 4 4 4" Width="300">
-            <Grid>
+            <Grid Height="339">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
@@ -44,9 +44,21 @@
                             </Binding>
                         </ComboBox.SelectedValue>
                     </ComboBox>
-                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Margin="0 22 0 0" TextAlignment="Justify">
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" Margin="0 22 0 0" TextAlignment="Justify" Height="43">
                         This is the COM-Port used for the communication with the arduino.
                     </TextBlock>
+                    <TextBlock FontWeight="Bold">Baudrate</TextBlock>
+                    <ComboBox
+                        materialDesign:HintAssist.Hint="Baudrate"
+                        ItemsSource="{Binding AvailableBaudrate}">
+                        <ComboBox.SelectedValue>
+                            <Binding Path="Settings.Baudrate" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validationRules:NotEmptyValidationRule ValidatesOnTargetUpdated="True"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </ComboBox.SelectedValue>
+                    </ComboBox>
                 </StackPanel>
             </Grid>
         </materialDesign:Card>
