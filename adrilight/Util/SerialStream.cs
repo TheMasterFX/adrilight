@@ -191,7 +191,7 @@ namespace adrilight
                         {
                             serialPort?.Close();
                             
-                            serialPort = UserSettings.ComPort!= "Fake Port" ? (ISerialPortWrapper) new WrappedSerialPort(new SerialPort(UserSettings.ComPort, baudRate)) : new FakeSerialPort();
+                            serialPort = UserSettings.ComPort!= "Fake Port" ? (ISerialPortWrapper) new WrappedSerialPort(new SerialPort(UserSettings.ComPort, UserSettings.Baudrate)) : new FakeSerialPort();
                             serialPort.Open();
                             openedComPort = UserSettings.ComPort;
                         }
